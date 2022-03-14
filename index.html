@@ -94,20 +94,22 @@
           <div class="col-lg-8 order-lg-1 mb-5 mb-lg-0">
             <div class="container-fluid px-5">
               <div class="row gx-5">
-                <div class="col-md-6 mb-5">
+                <div class="col-md-6">
+                  <!-- Feature item-->
                   <!-- Feature item-->
                   <div class="text-center">
                     <a class="me-lg-3 mb-3 icon-feature" href="#!"
                       ><img
                         class="app-badge"
-                        src="assets/img/email172.png"
+                        src="assets/img/micro172.png"
                         alt="..."
                     /></a>
-                    <h3 class="font-alt">Email/SMS</h3>
+                    <h3 class="font-alt">Microcontroller</h3>
                     <p class="text-muted mb-0">
-                      Connect your email and be notified with an encoded message
-                      that you can run through a decoder and see a picture of
-                      who is at your door
+                      With the CC3200, track the movement of your door using the
+                      built-in accelerometer,alert a camera to turn on using
+                      UART, and send a POST request to Amazon containing an
+                      encoded image.
                     </p>
                   </div>
                 </div>
@@ -122,8 +124,9 @@
                     /></a>
                     <h3 class="font-alt">Camera</h3>
                     <p class="text-muted mb-0">
-                      Using the OpenMV camera, capture and store the pictures
-                      needed to send
+                      Using the OpenMV camera, capture who opened your door
+                      using a facial tracking program, and send a base-64
+                      encoded image back to the CC3200 using UART.
                     </p>
                   </div>
                 </div>
@@ -135,14 +138,14 @@
                     <a class="me-lg-3 mb-3 icon-feature" href="#!"
                       ><img
                         class="app-badge"
-                        src="assets/img/micro172.png"
+                        src="assets/img/aws172.png"
                         alt="..."
                     /></a>
-                    <h3 class="font-alt">Microcontroller</h3>
+                    <h3 class="font-alt">AWS</h3>
                     <p class="text-muted mb-0">
-                      With the CC3200, track the movement of your door using the
-                      built-in accelerometer, and communicate to the camera
-                      using UART
+                      By using digital certificates, connect devices as "things"
+                      and set up a simple notification service that will update
+                      a user whenever a topic is triggered.
                     </p>
                   </div>
                 </div>
@@ -152,13 +155,14 @@
                     <a class="me-lg-3 mb-3 icon-feature" href="#!"
                       ><img
                         class="app-badge"
-                        src="assets/img/aws172.png"
+                        src="assets/img/email172.png"
                         alt="..."
                     /></a>
-                    <h3 class="font-alt">AWS</h3>
+                    <h3 class="font-alt">Email/SMS</h3>
                     <p class="text-muted mb-0">
-                      By using digital certificates, connect devices and set up
-                      a service that is connected to the internet
+                      Connect your email and be notified with an encoded message
+                      that you can run through a decoder and see a picture of
+                      who is at your door.
                     </p>
                   </div>
                 </div>
@@ -248,15 +252,21 @@
               <!-- Mashead text and app badges-->
               <div class="mb-5 mb-lg-0 text-center text-lg-start">
                 <h1 class="display-1 lh-1 mb-3">Approach</h1>
-                <p class="lead fw-normal text-muted mb-5">
-                  We knew that we could connect to AWS using certificates and
-                  register our board. Next was thinking of communication
-                  protocols. We knew that the accelerometer on the board could
-                  be read using I2C, but to get the system working, we had to
-                  set up a way to communciate with our camera using a different
-                  one, or even resorting to GPIO Pins as a power source. The
-                  thought behind UART was
+                <p class=" lead fw-normal text-muted mb-3">
+                  To communicate between the CC3200 and the OpenMV camera we only need a:
                 </p>
+                <dl class="row">
+                  <dt class="col-sm-3">Signal</dt>
+                  <dd class="col-sm-9">Tells the OpenMV when to turn on the camera and start the image detection algorithm to take a picture</dd>
+                  <dt class="col-sm-3 text-truncate">Protocol</dt>
+                  <dd class="col-sm-9">To be able to send the base64 encoded from the OpenMV to the CC3200.</dd>
+              </dl>
+              <p class="  fw-normal text-muted mb-3">
+                The other protocols such as SPI and I2C were too 
+                complicated to implement in the amount of time we had and required porting over a python based library to the CC3200. 
+                UART met all of our needs above and is a fairly fast and easy protocol to take advantage of, requiring only 3 wires. We used it to send a 
+                string to the OpenMV to tell it to start the camera and for the OpenMV to send the picture, once it had taken it, back to the CC3200 in a quick manner.
+              </p>
               </div>
             </div>
             <div class="col-lg-6">
@@ -268,6 +278,7 @@
                   alt="..."
                 />
               </div>
+              <h4 class="footnote">Flow chart of Process (Start at CC3200)</h3>
             </div>
           </div>
         </div>
@@ -345,7 +356,7 @@
           <h2 class="text-white display-1 lh-1 mb-4">Suggestions?</h2>
           <a
             class="btn btn-outline-light py-3 px-4 rounded-pill"
-            href="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+            href=""
             target="_blank"
             >Contact Us (no socials as of now)</a
           >
@@ -357,7 +368,7 @@
     <footer class="bg-black text-center py-5">
       <div class="container px-5">
         <div class="text-white-50 small">
-          <div class="mb-2">&copy; EEC 172 2021.</div>
+          <div class="mb-2">&copy; EEC 172 2022.</div>
           <a href="#!">Separate</a>
           <span class="mx-1">&middot;</span>
           <a href="#!">Links</a>

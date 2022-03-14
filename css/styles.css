@@ -11055,6 +11055,11 @@ fieldset:disabled .btn {
     flex-wrap: wrap-reverse !important;
   }
 
+  .footnote {
+    margin-left: 1rem;
+    padding-top: 1rem;
+  }
+
   .gap-xxl-0 {
     gap: 0 !important;
   }
