@@ -80,7 +80,7 @@
         <div class="row gx-5 justify-content-center">
           <div class="col-xl-8">
             <div class="h2 fs-1 text-white mb-4">
-              A simple security system that sends a base-64 message to AWS,
+              A simple security system that sends a base-64 encoded image to AWS,
               which the user can then decode to see who entered their home.
             </div>
           </div>
@@ -256,10 +256,10 @@
                   To communicate between the CC3200 and the OpenMV camera we only need a:
                 </p>
                 <dl class="row">
-                  <dt class="col-sm-3">Signal</dt>
-                  <dd class="col-sm-9">Tells the OpenMV when to turn on the camera and start the image detection algorithm to take a picture</dd>
-                  <dt class="col-sm-3 text-truncate">Protocol</dt>
-                  <dd class="col-sm-9">To be able to send the base64 encoded from the OpenMV to the CC3200.</dd>
+                  <dt class="col-sm-3 text-muted">Signal</dt>
+                  <dd class="col-sm-9 text-muted">Tells the OpenMV when to turn on the camera and start the image detection algorithm to take a picture</dd>
+                  <dt class="col-sm-3 text-truncate text-muted">Protocol</dt>
+                  <dd class="col-sm-9 text-muted">To be able to send the base64 encoded from the OpenMV to the CC3200.</dd>
               </dl>
               <p class="  fw-normal text-muted mb-3">
                 The other protocols such as SPI and I2C were too 
