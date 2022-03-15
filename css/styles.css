@@ -11060,6 +11060,10 @@ fieldset:disabled .btn {
     padding-top: 1rem;
   }
 
+  .footnotev2 {
+    margin-left: 8rem;
+  }
+
   .gap-xxl-0 {
     gap: 0 !important;
   }
